@@ -9,4 +9,4 @@ For the first topic, I fully characterized the optimal sample complexity require
 For the second one, I found the lower and upper bounds on the minimum data perturbation, measured in total variation distance, required for successful poisoning attack against risk minimization with fairness constraints.
 
 With my background, I would like to design practical machine learning models with theoretical performace guarantees.
-I believe tools from causal inference will be useful for this goal.
+I think understanding causality can greatly improve machine learning models, so I am interested in studying causal inference.
