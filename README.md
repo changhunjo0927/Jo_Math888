@@ -12,7 +12,9 @@ With my background, I would like to design practical machine learning models wit
 I think understanding causality can greatly improve machine learning models, so I am interested in studying causal inference.
 
 ## HW 2
-ABCDE $x^2+y^2=z^2$ ABCDE
-ABCDE
+ABC $x^2+y^2=z^2$ ABCD
+ABC
+
 $$x^2+y^2=z^2$$
+
 ABCD
