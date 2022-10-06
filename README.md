@@ -10,3 +10,5 @@ For the second one, I found the lower and upper bounds on the minimum data pertu
 
 With my background, I would like to design practical machine learning models with theoretical performace guarantees.
 I think understanding causality can greatly improve machine learning models, so I am interested in studying causal inference.
+
+## HW 2
