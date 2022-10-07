@@ -23,14 +23,14 @@ We use overbar to denote a sequence of variables up to a time point. For example
 The proximal outcome, \(Y_{t,\Delta}\), following the treatment assignment at time $t$, is a known function of the individual's data within a subsequent window of length \(\Delta\), where \(\Delta \) is a positive integer. That is, \(Y_{t,\Delta} = y(X_{t+1}, A_{t+1}, \ldots, X_{t+\Delta-1}, A_{t+\Delta-1}, X_{t+\Delta})\) for some known function \(y(\cdot)\).
 
 #### Causal effects we want to study
-For an individual, let $X_t(\bar{a}_{t-1})$ and $A_t(\bar{a}_{t-1})$ be the observation that would have been observed and the $t$th treatment that would have been assigned, respectively, if s/he were assigned the treatment sequence $\bar{a}_{t-1}$. Then the potential outcomes are defined as
-$$\{X_1, A_1, X_2(a_1), A_2(a_1), X_3(\bar{a}_2),\ldots, A_T(\bar{a}_{T-1}), X_{T+1}(\bar{a}_{T}) \mbox{ for all } \bar{a}_T \in \{0,1\}^{T}\}.$$
-The potential outcome for the proximal outcome is $Y_{t,\Delta}(\bar{a}_{t+\Delta - 1})$. The potential history under the observed treatment sequence at time $t$ is $H_t(\bar{A}_{t-1}) = (X_1, A_1, X_2(A_1), A_2, X_3(\bar{A}_2),\ldots, X_t(\bar{A}_{t-1}))$.
+For an individual, let \(X_t(\bar{a}_{t-1})\) and \(A_t(\bar{a}_{t-1})\) be the observation that would have been observed and the \(t\)th treatment that would have been assigned, respectively, if s/he were assigned the treatment sequence \(\bar{a}_{t-1}\). Then the potential outcomes are defined as
+\[\{X_1, A_1, X_2(a_1), A_2(a_1), X_3(\bar{a}_2),\ldots, A_T(\bar{a}_{T-1}), X_{T+1}(\bar{a}_{T}) \mbox{ for all } \bar{a}_T \in \{0,1\}^{T}\}.\]
+The potential outcome for the proximal outcome is \(Y_{t,\Delta}(\bar{a}_{t+\Delta - 1})\). The potential history under the observed treatment sequence at time \(t\) is \(H_t(\bar{A}_{t-1}) = (X_1, A_1, X_2(A_1), A_2, X_3(\bar{A}_2),\ldots, X_t(\bar{A}_{t-1}))\).
 
-We define the causal effect of $A_t$ on $Y_{t,\Delta}$ using the log relative risk scale:
-$$\beta_M\{t, S_t(\bar{A}_{t-1})\} = \log \frac{ E \{ Y_{t,\Delta}(\bar{A}_{t-1}, 1, \bar{0}) \mid S_t(\bar{A}_{t-1}), I_t(\bar{A}_{t-1}) = 1 \} }{E \{ Y_{t,\Delta}(\bar{A}_{t-1}, 0, \bar{0}) \mid S_t(\bar{A}_{t-1}), I_t(\bar{A}_{t-1}) = 1 \}},$$
-where $S_t(\bar{A}_{t-1})$ is a vector of summary variables formed from $H_t(\bar{A}_{t-1})$, and $\bar{0}$ is a vector of length $\Delta - 1$.
-This causal effect denotes the contrast of the expected outcome under two "excursions" from the current treatment protocol: treatment at time $t$ and no treatment for the next $\Delta - 1$ time points, versus no treatment at time $t$ and no treatment for the next $\Delta - 1$ time points.
+We define the causal effect of \(A_t\) on \(Y_{t,\Delta}\) using the log relative risk scale:
+\[\beta_M\{t, S_t(\bar{A}_{t-1})\} = \log \frac{ E \{ Y_{t,\Delta}(\bar{A}_{t-1}, 1, \bar{0}) \mid S_t(\bar{A}_{t-1}), I_t(\bar{A}_{t-1}) = 1 \} }{E \{ Y_{t,\Delta}(\bar{A}_{t-1}, 0, \bar{0}) \mid S_t(\bar{A}_{t-1}), I_t(\bar{A}_{t-1}) = 1 \}},\]
+where \(S_t(\bar{A}_{t-1})\) is a vector of summary variables formed from \(H_t(\bar{A}_{t-1})\), and \(\bar{0}\) is a vector of length \(\Delta - 1\).
+This causal effect denotes the contrast of the expected outcome under two "excursions" from the current treatment protocol: treatment at time \(t\) and no treatment for the next \(\Delta - 1\) time points, versus no treatment at time \(t\) and no treatment for the next \(\Delta - 1\) time points.
 
 #### Hypothesis
 The causal excursion effect can be used in primary aim analysis for MRTs with binary outcomes.
