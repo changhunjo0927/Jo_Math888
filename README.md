@@ -12,9 +12,13 @@ With my background, I would like to design practical machine learning models wit
 I think understanding causality can greatly improve machine learning models, so I am interested in studying causal inference.
 
 ## HW 2
-ABC $x^2+y^2=z^2$ ABCD
-ABC
+#### Problem of interest
+Mobile health interventions to people in their everyday life is available due to wearables and digital technology. The micro-randomized trial (MRT), where each individual is repeatedly randomized among multiple intervention options over the course of the trial, has been increasingly used to provide data to inform the construction of these interventions. In "Estimating Time-Varying Causal Excursion Effect in Mobile Health with Binary Outcomes, Qian et al. (2021)," the authors proposed the definition of causal excursion effect that can be used in primary aim analysis for MRTs with binary outcomes.
 
-$$x^2+y^2=z^2$$
+#### Variables
 
-ABCD
+#### Causal effects we want to study
+
+#### Hypothesis
+
+
