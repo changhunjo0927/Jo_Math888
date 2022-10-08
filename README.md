@@ -16,7 +16,7 @@ I think understanding causality can greatly improve machine learning models, so 
 Mobile health interventions to people in their everyday life is available due to wearables and digital technology. The micro-randomized trial (MRT), where each individual is repeatedly randomized among multiple intervention options over the course of the trial, has been increasingly used to provide data to inform the construction of these interventions. In "Estimating Time-Varying Causal Excursion Effect in Mobile Health with Binary Outcomes, Qian et al. (2021)," the authors proposed the definition of causal excursion effect that can be used in primary aim analysis for MRTs with binary outcomes.
 
 #### Variables
-$\bar{A}_t \bar{A}_{t}$
+$\bar{X}_t \bar{A}_t$
 
 We use overbar to denote a sequence of variables up to a time point. For example,
 
