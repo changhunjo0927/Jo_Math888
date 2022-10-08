@@ -33,6 +33,6 @@ where $S_t(\bar{A}_{t-1})$ is a vector of summary variables formed from $H_t(\ba
 This causal effect denotes the contrast of the expected outcome under two "excursions" from the current treatment protocol: treatment at time $t$ and no treatment for the next $\Delta - 1$ time points, versus no treatment at time $t$ and no treatment for the next $\Delta - 1$ time points.
 
 #### Hypothesis
-The causal excursion effect can be used in primary aim analysis for MRTs with binary outcomes
+The causal excursion effect can be used in primary aim analysis for MRTs with binary outcomes.
 
 
