@@ -20,7 +20,7 @@ We use overbar to denote a sequence of variables up to a time point. For example
 
 $\bar{A}_t = (A_1, \ldots, A_t)$. Information accrued up to time $t$ is represented by the history 
 
-$H_t = (X_1, A_1, X_2, A_2, \ldots, X_{t-1}, A_{t-1}, X_t)$ = $(\bar{X}_t, \bar{A}_{t-1})$
+$H_t = (X_1, A_1, X_2, A_2, \ldots, X_{t-1}, A_{t-1}, X_t)$ = $\bar{X}_t, \bar{A}_{t-1}$ $(\bar{X}_t, \bar{A}_{t-1})$
 
 The observed data on a generic individual, ordered in time, is 
 
