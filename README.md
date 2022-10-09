@@ -23,7 +23,7 @@ We use overbar to denote a sequence of variables up to a time point. For example
 The proximal outcome, $Y_{t,\Delta}$, following the treatment assignment at time $t$, is a known function of the individual's data within a subsequent window of length $\Delta$, where $\Delta \geq 1$ is a positive integer. That is, $Y_{t,\Delta} = y(X_{t+1}, A_{t+1}, \ldots, X_{t+\Delta-1}, A_{t+\Delta-1}, X_{t+\Delta})$ for some known function $y(\cdot)$.
 
 #### Causal effects we want to study
-For an individual, let $$X_t(\bar{a}_{t-1})$$ and $$A_t(\bar{a}_{t-1})$$ be the observation that would have been observed and the $t$th treatment that would have been assigned, respectively, if s/he were assigned the treatment sequence $\bar{a}_{t-1}$. Then the potential outcomes are defined as
+For an individual, let $$X_t(\bar{a}_{t-1})$$ and $$A_t(\bar{a}_{t-1})$$ be the observation that would have been observed and the $t$th treatment that would have been assigned, respectively, if s/he were assigned the treatment sequence $$\bar{a}_{t-1}$$. Then the potential outcomes are defined as
 $$\{X_1, A_1, X_2(a_1), A_2(a_1), X_3(\bar{a}_2),\ldots, A_T(\bar{a}_{T-1}), X_{T+1}(\bar{a}_{T}) \mbox{ for all } \bar{a}_T \in \{0,1\}^{T}\}.$$
 The potential outcome for the proximal outcome is $Y_{t,\Delta}(\bar{a}_{t+\Delta - 1})$. The potential history under the observed treatment sequence at time $t$ is $$H_t(\bar{A}_{t-1}) = (X_1, A_1, X_2(A_1), A_2, X_3(\bar{A}_2),\ldots, X_t(\bar{A}_{t-1}))$$.
 
