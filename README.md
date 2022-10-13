@@ -29,7 +29,7 @@ The potential outcome for the proximal outcome is $Y_{t,\Delta}(\bar{a}_{t+\Delt
 
 We define the causal effect of $A_t$ on $Y_{t,\Delta}$ using the log relative risk scale:
 $$\beta_M\{t, S_t(\bar{A}_{t-1})\} = \log \frac{ E \{ Y_{t,\Delta}(\bar{A}_{t-1}, 1, \bar{0}) \mid S_t(\bar{A}_{t-1}), I_t(\bar{A}_{t-1}) = 1 \} }{E \{ Y_{t,\Delta}(\bar{A}_{t-1}, 0, \bar{0}) \mid S_t(\bar{A}_{t-1}), I_t(\bar{A}_{t-1}) = 1 \}},$$
-where $$S_t(\bar{A}_{t-1})$$ is a vector of summary variables formed from $$H_t(\bar{A}_{t-1})$$, and $\bar{0}$ is a vector of length $\Delta - 1$.
+where $$S_t(\bar{A}_{t-1})$$ is a vector of summary variables formed from $$H_t(\bar{A}_{t-1})$$, and $\bar{0}$ is a zero vector of length $\Delta - 1$.
 This causal effect denotes the contrast of the expected outcome under two "excursions" from the current treatment protocol: treatment at time $t$ and no treatment for the next $\Delta - 1$ time points, versus no treatment at time $t$ and no treatment for the next $\Delta - 1$ time points.
 
 #### Hypothesis
