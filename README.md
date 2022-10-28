@@ -63,7 +63,7 @@ Since the treatment is sequentially randomized with known probabilities, Assumpt
 The authors showed that, under Assumptions stated above,
 the causal excursion effect can be written in terms of the observed data distribution as follows:
 $$\beta_M\{t, S_t(\bar{A}_{t-1})\} = \log \frac{
-E \left[ E \left\{ \prod_{j=t+1}^{t+\Delta-1} \frac{\mathbbm{1}(A_j = 0)}{1 - p_j(H_j)} Y_{t,\Delta} \Big| A_t = 1, H_t, I_t = 1 \right\} \Big| S_t, I_t = 1 \right]
+E \left[ E \left\{ \prod_{j=t+1}^{t+\Delta-1} \frac{\mathbb{1}(A_j = 0)}{1 - p_j(H_j)} Y_{t,\Delta} \Big| A_t = 1, H_t, I_t = 1 \right\} \Big| S_t, I_t = 1 \right]
 }{
 E \left[ E \left\{ \prod_{j=t+1}^{t+\Delta-1} \frac{\mathbbm{1}(A_j = 0)}{1 - p_j(H_j)} Y_{t,\Delta} \Big| A_t = 0, H_t , I_t = 1 \right\} \Big| S_t, I_t = 1 \right]
 },$$
