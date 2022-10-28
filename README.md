@@ -72,10 +72,10 @@ where we define $\prod_{j=t+1}^{t+\Delta-1} \frac{\mathbb{1}(A_j = 0)}{1 - p_j(H
 We first show the following lemma.
 ##### Lemma 1
 For any $1 \leq k \leq \Delta$, we have
-\begin{align}
+$$\begin{align}
 & E\{Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})\mid H_t,A_t=a,I_t=1 \} \nonumber \\
 = & E\bigg\{\prod_{j=t+1}^{t + k - 1}\frac{\mathbb{1}(A_{j}=0)}{1-p_j(H_{j})}Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})\bigg|A_t=a,H_t,I_t=1\bigg\}. \label{eq:lem-proofuse}
-\end{align}
+\end{align}$$
 
 
 A proof of Lemma 1:
