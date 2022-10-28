@@ -89,7 +89,7 @@ $$\begin{align}
     = & E\bigg\{ \zeta \times \frac{\mathbb{1}(A_{t+k_0} = 0)}{1 - p_{t+k_0}(H_{t+k_0}, A_t = a, I_t = 1)} \bigg| H_{t+k_0}, A_t = a, I_t = 1 \bigg\} \label{proofuse-iden-11} \\
     = & E\bigg\{ \prod_{j=t+1}^{t + k_0}\frac{\mathbb{1}(A_{j}=0)}{1-p_j(H_{j})}Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0}) \bigg| H_{t+k_0}, A_t = a, I_t = 1 \bigg\}, \nonumber
 \end{align}$$
-where $$\eqref{proofuse-iden-11}$$ follows from Assumption 3 (sequential ignorability). Therefore, by the induction hypothesis and the law of iterated expectation we have
+where the second last equality follows from Assumption 3 (sequential ignorability). Therefore, by the induction hypothesis and the law of iterated expectation we have
 $$\begin{align}
     & E\{Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})\mid H_t,A_t=a,I_t=1 \} = E(\zeta \mid H_t, A_t = a, I_t = 1) \nonumber \\
     = & E\bigg\{ \prod_{j=t+1}^{t + k_0}\frac{\mathbb{1}(A_{j}=0)}{1-p_j(H_{j})}Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0}) \bigg| H_t, A_t = a, I_t = 1 \bigg\},
@@ -111,7 +111,7 @@ $$\begin{align}
 = & E[E\{Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})\mid H_t,A_t=a,I_t=1\}\mid S_t,I_t=1]   \label{proofuse-iden-3} \\
 = & E\bigg[E\bigg\{\prod_{j=t+1}^{t+\Delta-1}\frac{1(A_{j}=0)}{1-p_j(H_{j})}Y_{t,\Delta}\bigg|A_t=a,H_t, I_t = 1\bigg\}\bigg|S_t,I_t=1\bigg], \label{proofuse-iden-4}
 \end{align}$$
-where $$\eqref{proofuse-iden-1}$$ follows from the law of iterated expectation, $\eqref{proofuse-iden-2}$ follows from Assumption 1 (consistency), \eqref{proofuse-iden-3} follows from Assumption 3 (sequential ignorability), and \eqref{proofuse-iden-4} follows from Lemma 1. This completes the proof.
+where the first equality follows from the law of iterated expectation, the second one follows from Assumption 1 (consistency), the third one follows from Assumption 3 (sequential ignorability), and the last one follows from Lemma 1. This completes the proof of the indentifiability result.
 
 
 ## Conclusion
