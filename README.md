@@ -35,4 +35,8 @@ This causal effect denotes the contrast of the expected outcome under two "excur
 #### Hypothesis
 The causal excursion effect can be used in primary aim analysis for MRTs with binary outcomes.
 
-
+## HW 3
+#### Causal effects we want to study
+In "Estimating Time-Varying Causal Excursion Effect in Mobile Health with Binary Outcomes, Qian et al. (2021)," the authors proposed the causal effect of $A_t$ on $Y_{t,\Delta}$, which we call the causal excursion effect, using the log relative risk scale:
+$$\beta_M\{t, S_t(\bar{A}_{t-1})\} = \log \frac{ E \{ Y_{t,\Delta}(\bar{A}_{t-1}, 1, \bar{0}) \mid S_t(\bar{A}_{t-1}), I_t(\bar{A}_{t-1}) = 1 \} }{E \{ Y_{t,\Delta}(\bar{A}_{t-1}, 0, \bar{0}) \mid S_t(\bar{A}_{t-1}), I_t(\bar{A}_{t-1}) = 1 \}},$$
+where $S_t(\bar{A}_{t-1})$ is a vector of summary variables formed from $H_t(\bar{A}_{t-1})$, and $\bar{0}$ is a vector of length $\Delta - 1$.
