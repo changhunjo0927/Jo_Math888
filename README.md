@@ -79,7 +79,7 @@ $$\begin{align}
 
 
 A proof of Lemma 1:
-For $k=1$, Lemma 1 holds because by definition. We prove the lemma by induction on $k$.
+For $k=1$, Lemma 1 holds by definition. We prove the lemma by induction on $k$.
 
 Suppose the lemma holds for $k = k_0$ for some $1 \leq k_0 \leq \Delta - 1$. 
 For convenience presentation, we denote by $\zeta = \prod_{j=t+1}^{t + k_0 - 1}\frac{\mathbb{1}(A_{j}=0)}{1-p_j(H_{j})}Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})$. Then
