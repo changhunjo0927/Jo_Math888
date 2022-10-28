@@ -53,7 +53,7 @@ If $\mbox{Pr}(H_t = h_t, I_t = 1) > 0$, then $\mbox{Pr}(A_t = a \mid H_t = h_t, 
 
 
 ##### Assumption 3 (Sequential ignorability)
-For $1\leq t \leq T$, the potential outcomes $$\{ X_{t+1}(\bar{a}_t),$ $A_{t+1}(\bar{a}_t), \ldots, X_{T+1}(\bar{a}_T): \bar{a}_T \in \{0,1\}^{T} \}$$ are independent of $A_t$ conditional on $H_t$.
+For $1\leq t \leq T$, the potential outcomes $$\{ X_{t+1}(\bar{a}_t), A_{t+1}(\bar{a}_t), \ldots, X_{T+1}(\bar{a}_T): \bar{a}_T \in \{0,1\}^{T} \}$$ are independent of $A_t$ conditional on $H_t$.
 
 
 Since the treatment is sequentially randomized with known probabilities, Assumptions 2 and 3 are satisfied by design. Assumption 1 may not hold if there is social interaction between individuals, however, authors did not consider such cases to maintain the focus of this study.
