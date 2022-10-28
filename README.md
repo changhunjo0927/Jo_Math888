@@ -57,3 +57,62 @@ For $1\leq t \leq T$, the potential outcomes $\{ X_{t+1}(\bar{a}_t),$ $A_{t+1}(\
 
 
 Since the treatment is sequentially randomized with known probabilities, Assumptions 2 and 3 are satisfied by design. Assumption 1 may not hold if there is social interaction between individuals, however, authors did not consider such cases to maintain the focus of this study.
+
+## Identification of the causal effect and proof
+
+The authors showed that, under Assumptions stated above,
+the causal excursion effect can be written in terms of the observed data distribution as follows:
+$$\beta_M\{t, S_t(\bar{A}_{t-1})\} = \log \frac{
+E \left[ E \left\{ \prod_{j=t+1}^{t+\Delta-1} \frac{\mathbbm{1}(A_j = 0)}{1 - p_j(H_j)} Y_{t,\Delta} \Big| A_t = 1, H_t, I_t = 1 \right\} \Big| S_t, I_t = 1 \right]
+}{
+E \left[ E \left\{ \prod_{j=t+1}^{t+\Delta-1} \frac{\mathbbm{1}(A_j = 0)}{1 - p_j(H_j)} Y_{t,\Delta} \Big| A_t = 0, H_t , I_t = 1 \right\} \Big| S_t, I_t = 1 \right]
+},$$
+where we define $\prod_{j=t+1}^{t+\Delta-1} \frac{\mathbbm{1}(A_j = 0)}{1 - p_j(H_j)} = 1$ if $\Delta = 1$.
+
+We first show the following lemma.
+\begin{lemma} \label{lem:iden-proofuse}
+For any $1 \leq k \leq \Delta$, we have
+\begin{align}
+& E\{Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})\mid H_t,A_t=a,I_t=1 \} \nonumber \\
+= & E\bigg\{\prod_{j=t+1}^{t + k - 1}\frac{\mathbbm{1}(A_{j}=0)}{1-p_j(H_{j})}Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})\bigg|A_t=a,H_t,I_t=1\bigg\}. \label{eq:lem-proofuse}
+\end{align}
+\end{lemma}
+
+A proof of Lemma 1:
+For $k=1$, Lemma 1 holds because by definition. We prove the lemma by induction on $k$.
+
+Suppose the lemma holds for $k = k_0$ for some $1 \leq k_0 \leq \Delta - 1$. 
+For convenience presentation, we denote by $\zeta = \prod_{j=t+1}^{t + k_0 - 1}\frac{\mathbbm{1}(A_{j}=0)}{1-p_j(H_{j})}Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})$. Then
+\begin{align}
+    & E(\zeta \mid H_{t+k_0}, A_t = a, I_t = 1) \nonumber \\
+    = & E(\zeta \mid H_{t+k_0}, A_t = a, I_t = 1) \frac{E\{\mathbbm{1}(A_{t+k_0} = 0) \mid H_{t+k_0}, A_t = a, I_t = 1 \} }{1 - p_{t+k_0}(H_{t+k_0}, A_t = a, I_t = 1)} \nonumber \\
+    = & E\bigg\{ \zeta \times \frac{\mathbbm{1}(A_{t+k_0} = 0)}{1 - p_{t+k_0}(H_{t+k_0}, A_t = a, I_t = 1)} \bigg| H_{t+k_0}, A_t = a, I_t = 1 \bigg\} \label{proofuse-iden-11} \\
+    = & E\bigg\{ \prod_{j=t+1}^{t + k_0}\frac{\mathbbm{1}(A_{j}=0)}{1-p_j(H_{j})}Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0}) \bigg| H_{t+k_0}, A_t = a, I_t = 1 \bigg\}, \nonumber
+\end{align}
+where \eqref{proofuse-iden-11} follows from Assumption 3 (sequential ignorability). Therefore, by the induction hypothesis and the law of iterated expectation we have
+\begin{align}
+    & E\{Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})\mid H_t,A_t=a,I_t=1 \} = E(\zeta \mid H_t, A_t = a, I_t = 1) \nonumber \\
+    = & E\bigg\{ \prod_{j=t+1}^{t + k_0}\frac{\mathbbm{1}(A_{j}=0)}{1-p_j(H_{j})}Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0}) \bigg| H_t, A_t = a, I_t = 1 \bigg\},
+\end{align}
+i.e., we showed that the lemma holds for $k = k_0 + 1$. Therefore, the lemma holds for any $1 \leq k \leq \Delta$ by mathematical induction.\\
+\\
+
+In order to prove the indentifiability result, it suffices to show the following equality:
+\begin{align}
+& E\{Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})\mid S_t(\bar{A}_{t-1}),I_t(\bar{A}_{t-1})=1\} \nonumber \\
+= & E\bigg[E\bigg\{\prod_{j=t+1}^{t+\Delta-1}\frac{1(A_{j}=0)}{1-p_j(H_{j})}Y_{t,\Delta}\bigg|A_t=a,H_t, I_t = 1\bigg\}\bigg|S_t,I_t=1\bigg]. \label{proofuse-iden-0}
+\end{align}
+
+This can be proved as follows:
+\begin{align}
+& E\{Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})\mid S_t(\bar{A}_{t-1}),I_t(\bar{A}_{t-1})=1\} \nonumber \\
+= & E[E\{Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})\mid H_t(\bar{A}_{t-1}), I_t(\bar{A}_{t-1})=1\}\mid S_t(\bar{A}_{t-1}),I_t(\bar{A}_{t-1})=1]   \label{proofuse-iden-1} \\
+= & E[E\{Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})\mid H_t,I_t=1\}\mid S_t,I_t=1]   \label{proofuse-iden-2} \\
+= & E[E\{Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})\mid H_t,A_t=a,I_t=1\}\mid S_t,I_t=1]   \label{proofuse-iden-3} \\
+= & E\bigg[E\bigg\{\prod_{j=t+1}^{t+\Delta-1}\frac{1(A_{j}=0)}{1-p_j(H_{j})}Y_{t,\Delta}\bigg|A_t=a,H_t, I_t = 1\bigg\}\bigg|S_t,I_t=1\bigg], \label{proofuse-iden-4}
+\end{align}
+where \eqref{proofuse-iden-1} follows from the law of iterated expectation, \eqref{proofuse-iden-2} follows from Assumption 1 (consistency), \eqref{proofuse-iden-3} follows from Assumption 3 (sequential ignorability), and \eqref{proofuse-iden-4} follows from Lemma 1. This completes the proof.
+
+
+## Conclusion
+To identify the causal excursion effect, we need a variable $A_t$, which is a treatment option at time $t$, and a variable $X_t$, which is a vector of observations collected after time $t-1$. We also observe that the causal excursion effect denotes the contrast of the expected outcome under two "excursions" from the current treatment protocol.
