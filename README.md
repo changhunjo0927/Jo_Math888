@@ -41,11 +41,11 @@ In "Estimating Time-Varying Causal Excursion Effect in Mobile Health with Binary
 $$\beta_M\{t, S_t(\bar{A}_{t-1})\} = \log \frac{ E \{ Y_{t,\Delta}(\bar{A}_{t-1}, 1, \bar{0}) \mid S_t(\bar{A}_{t-1}), I_t(\bar{A}_{t-1}) = 1 \} }{E \{ Y_{t,\Delta}(\bar{A}_{t-1}, 0, \bar{0}) \mid S_t(\bar{A}_{t-1}), I_t(\bar{A}_{t-1}) = 1 \}},$$
 where $$S_t(\bar{A}_{t-1})$$ is a vector of summary variables formed from $$H_t(\bar{A}_{t-1})$$, and $$\bar{0}$$ is a vector of length $\Delta - 1$.
 
-####Assumptions
+#### Assumptions
 To express the causal excursion effect in terms of the observed data, we make the following assumptions.
 
 ##### Assumption 1 (Consistency)
-The observed data is equal to the potential outcome under observed treatment assignment. That is, $X_2 = X_2(A_1)$, $A_2 = A_2(A_1)$, and for each subsequent $t \leq T$, $X_t = X_t(\bar{A}_{t-1})$, $A_t = A_t(\bar{A}_{t-1})$, and $X_{T+1} = X_{T+1}(\bar{A}_T)$. This assumption implies $Y_{t,\Delta} = Y_{t,\Delta}(\bar{A}_{t+\Delta-1})$.
+The observed data is equal to the potential outcome under observed treatment assignment. That is, $X_2 = X_2(A_1)$, $A_2 = A_2(A_1)$, and for each subsequent $t \leq T$, $$X_t = X_t(\bar{A}_{t-1})$$, $$A_t = A_t(\bar{A}_{t-1})$$, and $$X_{T+1} = X_{T+1}(\bar{A}_T)$$. This assumption implies $$Y_{t,\Delta} = Y_{t,\Delta}(\bar{A}_{t+\Delta-1})$$.
 
 
 ##### Assumption 2 (Positivity)
@@ -53,7 +53,7 @@ If $\mbox{Pr}(H_t = h_t, I_t = 1) > 0$, then $\mbox{Pr}(A_t = a \mid H_t = h_t, 
 
 
 ##### Assumption 3 (Sequential ignorability)
-For $1\leq t \leq T$, the potential outcomes $\{ X_{t+1}(\bar{a}_t),$ $A_{t+1}(\bar{a}_t), \ldots, X_{T+1}(\bar{a}_T): \bar{a}_T \in \{0,1\}^{T} \}$ are independent of $A_t$ conditional on $H_t$.
+For $1\leq t \leq T$, the potential outcomes $$\{ X_{t+1}(\bar{a}_t),$ $A_{t+1}(\bar{a}_t), \ldots, X_{T+1}(\bar{a}_T): \bar{a}_T \in \{0,1\}^{T} \}$$ are independent of $A_t$ conditional on $H_t$.
 
 
 Since the treatment is sequentially randomized with known probabilities, Assumptions 2 and 3 are satisfied by design. Assumption 1 may not hold if there is social interaction between individuals, however, authors did not consider such cases to maintain the focus of this study.
