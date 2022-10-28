@@ -58,7 +58,7 @@ For $1\leq t \leq T$, the potential outcomes $$\{ X_{t+1}(\bar{a}_t), A_{t+1}(\b
 
 Since the treatment is sequentially randomized with known probabilities, Assumptions 2 and 3 are satisfied by design. Assumption 1 may not hold if there is social interaction between individuals, however, authors did not consider such cases to maintain the focus of this study.
 
-## Identification of the causal effect and proof
+#### Identification of the causal effect and proof
 
 The authors showed that, under Assumptions stated above,
 the causal excursion effect can be written in terms of the observed data distribution as follows:
@@ -114,5 +114,5 @@ $$\begin{align}
 where the first equality follows from the law of iterated expectation, the second one follows from Assumption 1 (consistency), the third one follows from Assumption 3 (sequential ignorability), and the last one follows from Lemma 1. This completes the proof of the indentifiability result.
 
 
-## Conclusion
+#### Conclusion
 To identify the causal excursion effect, we need a variable $A_t$, which is a treatment option at time $t$, and a variable $X_t$, which is a vector of observations collected after time $t-1$. We also observe that the causal excursion effect denotes the contrast of the expected outcome under two "excursions" from the current treatment protocol.
