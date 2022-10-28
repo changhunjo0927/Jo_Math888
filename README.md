@@ -70,13 +70,13 @@ E \left[ E \left\{ \prod_{j=t+1}^{t+\Delta-1} \frac{\mathbbm{1}(A_j = 0)}{1 - p_
 where we define $\prod_{j=t+1}^{t+\Delta-1} \frac{\mathbbm{1}(A_j = 0)}{1 - p_j(H_j)} = 1$ if $\Delta = 1$.
 
 We first show the following lemma.
-\begin{lemma} \label{lem:iden-proofuse}
+##### Lemma 1
 For any $1 \leq k \leq \Delta$, we have
 \begin{align}
 & E\{Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})\mid H_t,A_t=a,I_t=1 \} \nonumber \\
 = & E\bigg\{\prod_{j=t+1}^{t + k - 1}\frac{\mathbbm{1}(A_{j}=0)}{1-p_j(H_{j})}Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})\bigg|A_t=a,H_t,I_t=1\bigg\}. \label{eq:lem-proofuse}
 \end{align}
-\end{lemma}
+
 
 A proof of Lemma 1:
 For $k=1$, Lemma 1 holds because by definition. We prove the lemma by induction on $k$.
@@ -94,8 +94,8 @@ where \eqref{proofuse-iden-11} follows from Assumption 3 (sequential ignorabilit
     & E\{Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})\mid H_t,A_t=a,I_t=1 \} = E(\zeta \mid H_t, A_t = a, I_t = 1) \nonumber \\
     = & E\bigg\{ \prod_{j=t+1}^{t + k_0}\frac{\mathbbm{1}(A_{j}=0)}{1-p_j(H_{j})}Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0}) \bigg| H_t, A_t = a, I_t = 1 \bigg\},
 \end{align}
-i.e., we showed that the lemma holds for $k = k_0 + 1$. Therefore, the lemma holds for any $1 \leq k \leq \Delta$ by mathematical induction.\\
-\\
+i.e., we showed that the lemma holds for $k = k_0 + 1$. Therefore, the lemma holds for any $1 \leq k \leq \Delta$ by mathematical induction.
+
 
 In order to prove the indentifiability result, it suffices to show the following equality:
 \begin{align}
