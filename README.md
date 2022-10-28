@@ -52,7 +52,7 @@ The observed data is equal to the potential outcome under observed treatment ass
 If $\mbox{Pr}(H_t = h_t, I_t = 1) > 0$, then $\mbox{Pr}(A_t = a \mid H_t = h_t, I_t = 1) > 0$ for $a \in \{0,1\}$.
 
 
-Assumption 3 (Sequential ignorability)
+##### Assumption 3 (Sequential ignorability)
 For $1\leq t \leq T$, the potential outcomes $\{ X_{t+1}(\bar{a}_t),$ $A_{t+1}(\bar{a}_t), \ldots, X_{T+1}(\bar{a}_T): \bar{a}_T \in \{0,1\}^{T} \}$ are independent of $A_t$ conditional on $H_t$.
 
 
