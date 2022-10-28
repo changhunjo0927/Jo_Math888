@@ -65,16 +65,16 @@ the causal excursion effect can be written in terms of the observed data distrib
 $$\beta_M\{t, S_t(\bar{A}_{t-1})\} = \log \frac{
 E \left[ E \left\{ \prod_{j=t+1}^{t+\Delta-1} \frac{\mathbb{1}(A_j = 0)}{1 - p_j(H_j)} Y_{t,\Delta} \Big| A_t = 1, H_t, I_t = 1 \right\} \Big| S_t, I_t = 1 \right]
 }{
-E \left[ E \left\{ \prod_{j=t+1}^{t+\Delta-1} \frac{\mathbbm{1}(A_j = 0)}{1 - p_j(H_j)} Y_{t,\Delta} \Big| A_t = 0, H_t , I_t = 1 \right\} \Big| S_t, I_t = 1 \right]
+E \left[ E \left\{ \prod_{j=t+1}^{t+\Delta-1} \frac{\mathbb{1}(A_j = 0)}{1 - p_j(H_j)} Y_{t,\Delta} \Big| A_t = 0, H_t , I_t = 1 \right\} \Big| S_t, I_t = 1 \right]
 },$$
-where we define $\prod_{j=t+1}^{t+\Delta-1} \frac{\mathbbm{1}(A_j = 0)}{1 - p_j(H_j)} = 1$ if $\Delta = 1$.
+where we define $\prod_{j=t+1}^{t+\Delta-1} \frac{\mathbb{1}(A_j = 0)}{1 - p_j(H_j)} = 1$ if $\Delta = 1$.
 
 We first show the following lemma.
 ##### Lemma 1
 For any $1 \leq k \leq \Delta$, we have
 \begin{align}
 & E\{Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})\mid H_t,A_t=a,I_t=1 \} \nonumber \\
-= & E\bigg\{\prod_{j=t+1}^{t + k - 1}\frac{\mathbbm{1}(A_{j}=0)}{1-p_j(H_{j})}Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})\bigg|A_t=a,H_t,I_t=1\bigg\}. \label{eq:lem-proofuse}
+= & E\bigg\{\prod_{j=t+1}^{t + k - 1}\frac{\mathbb{1}(A_{j}=0)}{1-p_j(H_{j})}Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})\bigg|A_t=a,H_t,I_t=1\bigg\}. \label{eq:lem-proofuse}
 \end{align}
 
 
@@ -82,17 +82,17 @@ A proof of Lemma 1:
 For $k=1$, Lemma 1 holds because by definition. We prove the lemma by induction on $k$.
 
 Suppose the lemma holds for $k = k_0$ for some $1 \leq k_0 \leq \Delta - 1$. 
-For convenience presentation, we denote by $\zeta = \prod_{j=t+1}^{t + k_0 - 1}\frac{\mathbbm{1}(A_{j}=0)}{1-p_j(H_{j})}Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})$. Then
+For convenience presentation, we denote by $\zeta = \prod_{j=t+1}^{t + k_0 - 1}\frac{\mathbb{1}(A_{j}=0)}{1-p_j(H_{j})}Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})$. Then
 \begin{align}
     & E(\zeta \mid H_{t+k_0}, A_t = a, I_t = 1) \nonumber \\
-    = & E(\zeta \mid H_{t+k_0}, A_t = a, I_t = 1) \frac{E\{\mathbbm{1}(A_{t+k_0} = 0) \mid H_{t+k_0}, A_t = a, I_t = 1 \} }{1 - p_{t+k_0}(H_{t+k_0}, A_t = a, I_t = 1)} \nonumber \\
-    = & E\bigg\{ \zeta \times \frac{\mathbbm{1}(A_{t+k_0} = 0)}{1 - p_{t+k_0}(H_{t+k_0}, A_t = a, I_t = 1)} \bigg| H_{t+k_0}, A_t = a, I_t = 1 \bigg\} \label{proofuse-iden-11} \\
-    = & E\bigg\{ \prod_{j=t+1}^{t + k_0}\frac{\mathbbm{1}(A_{j}=0)}{1-p_j(H_{j})}Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0}) \bigg| H_{t+k_0}, A_t = a, I_t = 1 \bigg\}, \nonumber
+    = & E(\zeta \mid H_{t+k_0}, A_t = a, I_t = 1) \frac{E\{\mathbb{1}(A_{t+k_0} = 0) \mid H_{t+k_0}, A_t = a, I_t = 1 \} }{1 - p_{t+k_0}(H_{t+k_0}, A_t = a, I_t = 1)} \nonumber \\
+    = & E\bigg\{ \zeta \times \frac{\mathbb{1}(A_{t+k_0} = 0)}{1 - p_{t+k_0}(H_{t+k_0}, A_t = a, I_t = 1)} \bigg| H_{t+k_0}, A_t = a, I_t = 1 \bigg\} \label{proofuse-iden-11} \\
+    = & E\bigg\{ \prod_{j=t+1}^{t + k_0}\frac{\mathbb{1}(A_{j}=0)}{1-p_j(H_{j})}Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0}) \bigg| H_{t+k_0}, A_t = a, I_t = 1 \bigg\}, \nonumber
 \end{align}
 where \eqref{proofuse-iden-11} follows from Assumption 3 (sequential ignorability). Therefore, by the induction hypothesis and the law of iterated expectation we have
 \begin{align}
     & E\{Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0})\mid H_t,A_t=a,I_t=1 \} = E(\zeta \mid H_t, A_t = a, I_t = 1) \nonumber \\
-    = & E\bigg\{ \prod_{j=t+1}^{t + k_0}\frac{\mathbbm{1}(A_{j}=0)}{1-p_j(H_{j})}Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0}) \bigg| H_t, A_t = a, I_t = 1 \bigg\},
+    = & E\bigg\{ \prod_{j=t+1}^{t + k_0}\frac{\mathbb{1}(A_{j}=0)}{1-p_j(H_{j})}Y_{t,\Delta}(\bar{A}_{t-1},a,\bar{0}) \bigg| H_t, A_t = a, I_t = 1 \bigg\},
 \end{align}
 i.e., we showed that the lemma holds for $k = k_0 + 1$. Therefore, the lemma holds for any $1 \leq k \leq \Delta$ by mathematical induction.
 
