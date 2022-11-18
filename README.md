@@ -116,3 +116,119 @@ where the first equality follows from the law of iterated expectation, the secon
 
 #### Conclusion
 To identify the causal excursion effect, we need a variable $A_t$, which is a treatment option at time $t$, and a variable $X_t$, which is a vector of observations collected after time $t-1$. We also observe that the causal excursion effect denotes the contrast of the expected outcome under two "excursions" from the current treatment protocol.
+
+
+## HW 4
+In “Estimating Time-Varying Causal Excursion Effect in Mobile Health with Binary Outcomes, Qian et al. (2021),” the authors estimated the causal excursion effect $\beta$ as follows.
+
+### Estimator
+One of the estimators proposed by the authors is an estimator for the marginal excursion effect (EMEE).
+
+We first recall the assumptions for identification.
+
+##### Assumption 1 (Consistency)
+The observed data is equal to the potential outcome under observed treatment assignment. That is, $X_2 = X_2(A_1)$, $A_2 = A_2(A_1)$, and for each subsequent $t \leq T$, $$X_t = X_t(\bar{A}_{t-1})$$, $$A_t = A_t(\bar{A}_{t-1})$$, and $$X_{T+1} = X_{T+1}(\bar{A}_T)$$. This assumption implies $$Y_{t,\Delta} = Y_{t,\Delta}(\bar{A}_{t+\Delta-1})$$.
+
+
+##### Assumption 2 (Positivity)
+If $\mbox{Pr}(H_t = h_t, I_t = 1) > 0$, then $\mbox{Pr}(A_t = a \mid H_t = h_t, I_t = 1) > 0$ for $a \in \{0,1\}$.
+
+
+##### Assumption 3 (Sequential ignorability)
+For $1\leq t \leq T$, the potential outcomes $$\{ X_{t+1}(\bar{a}_t), A_{t+1}(\bar{a}_t), \ldots, X_{T+1}(\bar{a}_T): \bar{a}_T \in \{0,1\}^{T} \}$$ are independent of $A_t$ conditional on $H_t$.
+
+#### An estimator for the marginal excursion effect (EMEE)
+
+We focus on estimation of $\beta_M(t, S_t)$ where $S_t$ is an arbitrary subset of $H_t$. Suppose $\Delta \geq 1$ is a positive integer. Recall that
+
+$$
+\begin{align*}
+  \beta_M(t, S_t) =\log \frac{
+E \left[ E \left\{ \prod_{j=t+1}^{t+\Delta-1} \frac{\mathbbm{1}(A_j = 0)}{1 - p_j(H_j)} Y_{t,\Delta} \Big| A_t = 1, H_t, I_t = 1 \right\} \Big| S_t, I_t = 1 \right]
+}{
+E \left[ E \left\{ \prod_{j=t+1}^{t+\Delta-1} \frac{\mathbbm{1}(A_j = 0)}{1 - p_j(H_j)} Y_{t,\Delta} \Big| A_t = 0, H_t, I_t = 1 \right\} \Big| S_t, I_t = 1 \right]
+}.
+\end{align*}
+$$
+
+We make a parametric assumption on $\beta_M(t, S_t)$. Suppose that for $1 \leq t \leq T$,
+$$
+\begin{equation}
+\beta_M(t, S_t) = S_t^T \beta \label{eq:model-maginal-binary}
+\end{equation}
+$$
+holds for some $p$-dimensional parameter $\beta$.  This model allows for time-dependent effects; $S_t$ could include a vector of basis functions of $t$.
+
+
+We propose to use a marginal generalization of the following estimating function to estimate $\beta$.
+$$
+\begin{align}
+m_C(\alpha, \psi) = & \sum_{t=1}^{T} I_t e^{-A_t f(H_t)^T \psi}\{Y_{t,1} - e^{g(H_t)^T \alpha + A_t f(H_t)^T \psi}\} \tilde{K}_t
+\begin{bmatrix}
+g(H_t) \\
+\{ A_t - p_t(H_t) \} f(H_t)
+\end{bmatrix}, \label{eq:ee-conditional}
+\end{align}
+$$
+where 
+$$
+\begin{align*}
+ \tilde{K}_t = \frac{e^{f(H_t)^T \psi}}
+{ e^{f(H_t)^T \psi}\{ 1-e^{g(H_t)^T\alpha} \} p_t(H_t)+ \{1-e^{g(H_t)^T\alpha+f(H_t)^T \psi} \} \{1-p_t(H_t)\} }.
+\end{align*}
+$$
+Then, the proposed estimating function is
+$$
+\begin{align}
+m_M(\alpha,\beta) = \sum_{t=1}^{T + \Delta - 1} I_t e^{-A_t S_t^T \beta} \{ Y_{t,\Delta} - e^{g(H_t)^T \alpha + A_t S_t^T \beta} \} J_t
+\begin{bmatrix}g(H_t)\\
+\{A_t - \tilde{p}_t(S_t)\} S_t
+\end{bmatrix}, \label{eq:ee-marginal}
+\end{align}
+$$
+where $\exp\{g(H_t)^T \alpha\}$ is a working model for $E\{Y_{t,\Delta}(\bar{A}_{t-1}, 0, \bar{0}) \mid H_t, I_t = 1, A_t = 0\}$. 
+
+Since the model is now on the marginal effect, we apply a weighting and centering technique. 
+The weight at time $t$ is 
+$$
+\begin{align}
+J_t = \bigg\{ \frac{\tilde{p}_t(S_t)}{p_t(H_t)} \bigg\}^{A_t} \bigg\{ \frac{1 - \tilde{p}_t(S_t)}{1 - p_t(H_t)} \bigg\}^{1 - A_t} \times \prod_{j=t+1}^{t+\Delta-1} \frac{\mathbbm{1}(A_j = 0)}{1 - p_j(H_j)},
+\end{align}
+$$
+where $\tilde{p}_t(S_t) \in (0,1)$ is arbitrary as long as it does not depend on terms in $H_t$ other than $S_t$. The product, $\prod_{j=t+1}^{t+\Delta-1} \mathbbm{1}(A_j = 0)/\{1 - p_j( H_j)\}$, is standard inverse probability weighting for settings with $\Delta>1$. The ratio of probabilities, $\{\tilde{p}_t(S_t)/p_t(H_t) \}^{A_t} [ \{1 - \tilde{p}_t(S_t)\} / \{1 - p_t(H_t)\} ]^{1 - A_t}$, can be viewed as a change of probability.
+
+The authors showed that EMEE is a consistent estimator under proper assumptions.
+
+#### Theorem
+Suppose $\beta_M(t, S_t) = S_t^T$ and Assumptions 1,2,3 hold, and that the randomization probability $p_t(H_t)$ is known. Suppose $\beta^*$ is the value of $\beta$ corresponding to the data generating distribution, $P_0$.
+Let $\dot{m}_M$ be the derivative of $m_M(\alpha, \beta)$ with respect to $(\alpha, \beta)$. Let $(\hat\alpha, \hat\beta)$ be a solution to $\mathbb{P}_n m_M(\alpha,\beta) = 0$.
+Under regularity conditions, $\sqrt{n}(\hat\beta - \beta^*)$ is asymptotically normal with mean zero and variance-covariance matrix $\Sigma_M$. A consistent estimator for $\Sigma_M$ is the lower block diagonal $(p\times p)$ entry of the matrix
+$\{\mathbb{P}_n \dot{m}_M(\hat\alpha, \hat\beta)\}^{-1}
+\{\mathbb{P}_n m_M(\hat\alpha, \hat\beta) m_M(\hat\alpha, \hat\beta)^T\}$
+$\{\mathbb{P}_n \dot{m}_M(\hat\alpha, \hat\beta)\}^{-1^T}$.
+
+### Simulation
+
+#### Dataset
+
+We use a synthetic dataset generated as follows. The time-varying covariate, $Z_t$, is independent of all variables observed before $Z_t$, and it takes three values $0,1,2$ with equal probability. The randomization probability is constant with $p_t(H_t) = 0.2$. The outcome $Y_{t,1}$ is generated from a Bernoulli distribution with
+$$
+\begin{align*}
+  E(Y_{t,1} \mid H_t, A_t) = \big\{0.2 \mathbbm{1}_{Z_t = 0} + 0.5 \mathbbm{1}_{Z_t = 1} + 0.4 \mathbbm{1}_{Z_t = 2} \big\} e^{A_t (0.1 + 0.3 Z_t)}.
+\end{align*}
+$$
+Here, $Z_t$ moderates the conditional treatment effect: The true conditional treatment effect $\beta_C(t,H_t)$ equals $0.1 + 0.3 Z_t$.
+
+We first consider estimating the fully marginal excursion effect, which is equal to
+$$
+\begin{align*}
+\beta_0 = \log \frac{E\{ E(Y_{t,1} \mid H_t, A_t = 1) \}}{ E \{ E(Y_{t,1} \mid H_t, A_t = 0) \}} = 0.477.
+\end{align*}
+$$
+This is the setting of a typical primary analysis of MRT. In order to estimate $\beta_0$, by Theorem \ref{thm:asymptotics-marginal} it is appropriate to use the EMEE estimator with $S_t = 1$. 
+For comparison, we also include the generalized estimating equations (GEE) estimator, which is widely used in analyzing mHealth data. We use independence ("GEE.ind") and exchangeable ("GEE.exch") as working correlation structures for GEE.
+
+#### Simulation results
+
+The simulation result for estimating $\beta_0$ is given in Table 1; the total number of time points is $T=30$ for each individual. The bias, standard deviation (SD), and root mean squared error (RMSE) are all computed based on 1000 replicates. As expected, EMEE consistently estimates $\beta_0$. The consistency of GEE generally requires the working model $g(H_t)^T \alpha$ to be correct; in other words, it does not have the robustness property as EMEE. The result shows that both GEE.ind and GEE.exch are inconsistent.
+
