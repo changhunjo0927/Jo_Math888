@@ -141,13 +141,13 @@ For $1\leq t \leq T$, the potential outcomes $$\{ X_{t+1}(\bar{a}_t), A_{t+1}(\b
 
 We focus on estimation of $\beta_M(t, S_t)$ where $S_t$ is an arbitrary subset of $H_t$. Suppose $\Delta \geq 1$ is a positive integer. Recall that
 
-$$\begin{align*}
+$$\begin{align}
   \beta_M(t, S_t) =\log \frac{
 E \left[ E \left\{ \prod_{j=t+1}^{t+\Delta-1} \frac{\mathbb{1}(A_j = 0)}{1 - p_j(H_j)} Y_{t,\Delta} \Big| A_t = 1, H_t, I_t = 1 \right\} \Big| S_t, I_t = 1 \right]
 }{
 E \left[ E \left\{ \prod_{j=t+1}^{t+\Delta-1} \frac{\mathbb{1}(A_j = 0)}{1 - p_j(H_j)} Y_{t,\Delta} \Big| A_t = 0, H_t, I_t = 1 \right\} \Big| S_t, I_t = 1 \right]
 }.
-\end{align*}$$
+\end{align}$$
 
 We make a parametric assumption on $\beta_M(t, S_t)$. Suppose that for $1 \leq t \leq T$,
 $$\begin{equation}
@@ -183,7 +183,7 @@ The weight at time $t$ is
 $$\begin{align}
 J_t = \bigg\{ \frac{\tilde{p}_t(S_t)}{p_t(H_t)} \bigg\}^{A_t} \bigg\{ \frac{1 - \tilde{p}_t(S_t)}{1 - p_t(H_t)} \bigg\}^{1 - A_t} \times \prod_{j=t+1}^{t+\Delta-1} \frac{\mathbb{1}(A_j = 0)}{1 - p_j(H_j)},
 \end{align}$$
-where $\tilde{p}_t(S_t) \in (0,1)$ is arbitrary as long as it does not depend on terms in $H_t$ other than $S_t$. The product, $\prod_{j=t+1}^{t+\Delta-1} \mathbb{1}(A_j = 0)/\{1 - p_j( H_j)\}$, is standard inverse probability weighting for settings with $\Delta>1$. The ratio of probabilities, $\{\tilde{p}_t(S_t)/p_t(H_t) \}^{A_t} [ \{1 - \tilde{p}_t(S_t)\} / \{1 - p_t(H_t)\} ]^{1 - A_t}$, can be viewed as a change of probability.
+where $$\tilde{p}_t(S_t) \in (0,1)$$ is arbitrary as long as it does not depend on terms in $H_t$ other than $S_t$. The product, $$\prod_{j=t+1}^{t+\Delta-1} \mathbb{1}(A_j = 0)/\{1 - p_j( H_j)\}$$, is standard inverse probability weighting for settings with $\Delta>1$. The ratio of probabilities, $$\{\tilde{p}_t(S_t)/p_t(H_t) \}^{A_t} [ \{1 - \tilde{p}_t(S_t)\} / \{1 - p_t(H_t)\} ]^{1 - A_t}$$, can be viewed as a change of probability.
 
 The authors showed that EMEE is a consistent estimator under proper assumptions.
 
