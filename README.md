@@ -187,7 +187,7 @@ where $$\tilde{p}_t(S_t) \in (0,1)$$ is arbitrary as long as it does not depend 
 
 The authors showed that EMEE is a consistent estimator under proper assumptions.
 
-#### Theorem
+#### Theorem 1
 Suppose $\beta_M(t, S_t) = S_t^T$ and Assumptions 1,2,3 hold, and that the randomization probability $p_t(H_t)$ is known. Suppose $$\beta^*$$ is the value of $\beta$ corresponding to the data generating distribution, $P_0$.
 Let $\dot{m}_M$ be the derivative of $m_M(\alpha, \beta)$ with respect to $(\alpha, \beta)$. Let $(\hat\alpha, \hat\beta)$ be a solution to $\mathbb{P}_n m_M(\alpha,\beta) = 0$.
 Under regularity conditions, $$\sqrt{n}(\hat\beta - \beta^*)$$ is asymptotically normal with mean zero and variance-covariance matrix $\Sigma_M$. A consistent estimator for $\Sigma_M$ is the lower block diagonal $(p\times p)$ entry of the matrix
@@ -209,12 +209,13 @@ We first consider estimating the fully marginal excursion effect, which is equal
 $$\begin{align*}
 \beta_0 = \log \frac{E\{ E(Y_{t,1} \mid H_t, A_t = 1) \}}{ E \{ E(Y_{t,1} \mid H_t, A_t = 0) \}} = 0.477.
 \end{align*}$$
-This is the setting of a typical primary analysis of MRT. In order to estimate $\beta_0$, by Theorem \ref{thm:asymptotics-marginal} it is appropriate to use the EMEE estimator with $S_t = 1$. 
+This is the setting of a typical primary analysis of MRT. In order to estimate $\beta_0$, by Theorem 1 it is appropriate to use the EMEE estimator with $S_t = 1$. 
 For comparison, we also include the generalized estimating equations (GEE) estimator, which is widely used in analyzing mHealth data. We use independence ("GEE.ind") and exchangeable ("GEE.exch") as working correlation structures for GEE.
 
 #### Simulation results
 
 <img src="Table1.png" />
+[Table1]
 
 The simulation result for estimating $\beta_0$ is given in Table 1; the total number of time points is $T=30$ for each individual. The bias, standard deviation (SD), and root mean squared error (RMSE) are all computed based on 1000 replicates. As expected, EMEE consistently estimates $\beta_0$. The consistency of GEE generally requires the working model $g(H_t)^T \alpha$ to be correct; in other words, it does not have the robustness property as EMEE. The result shows that both GEE.ind and GEE.exch are inconsistent.
 
