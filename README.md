@@ -188,12 +188,12 @@ where $$\tilde{p}_t(S_t) \in (0,1)$$ is arbitrary as long as it does not depend 
 The authors showed that EMEE is a consistent estimator under proper assumptions.
 
 #### Theorem
-Suppose $\beta_M(t, S_t) = S_t^T$ and Assumptions 1,2,3 hold, and that the randomization probability $p_t(H_t)$ is known. Suppose $\beta^*$ is the value of $\beta$ corresponding to the data generating distribution, $P_0$.
+Suppose $\beta_M(t, S_t) = S_t^T$ and Assumptions 1,2,3 hold, and that the randomization probability $p_t(H_t)$ is known. Suppose $$\beta^*$$ is the value of $\beta$ corresponding to the data generating distribution, $P_0$.
 Let $\dot{m}_M$ be the derivative of $m_M(\alpha, \beta)$ with respect to $(\alpha, \beta)$. Let $(\hat\alpha, \hat\beta)$ be a solution to $\mathbb{P}_n m_M(\alpha,\beta) = 0$.
-Under regularity conditions, $\sqrt{n}(\hat\beta - \beta^*)$ is asymptotically normal with mean zero and variance-covariance matrix $\Sigma_M$. A consistent estimator for $\Sigma_M$ is the lower block diagonal $(p\times p)$ entry of the matrix
-$\{\mathbb{P}_n \dot{m}_M(\hat\alpha, \hat\beta)\}^{-1}
-\{\mathbb{P}_n m_M(\hat\alpha, \hat\beta) m_M(\hat\alpha, \hat\beta)^T\}$
-$\{\mathbb{P}_n \dot{m}_M(\hat\alpha, \hat\beta)\}^{-1^T}$.
+Under regularity conditions, $$\sqrt{n}(\hat\beta - \beta^*)$$ is asymptotically normal with mean zero and variance-covariance matrix $\Sigma_M$. A consistent estimator for $\Sigma_M$ is the lower block diagonal $(p\times p)$ entry of the matrix
+$$\{\mathbb{P}_n \dot{m}_M(\hat\alpha, \hat\beta)\}^{-1}
+\{\mathbb{P}_n m_M(\hat\alpha, \hat\beta) m_M(\hat\alpha, \hat\beta)^T\}$$
+$$\{\mathbb{P}_n \dot{m}_M(\hat\alpha, \hat\beta)\}^{-1^T}$$.
 
 ### Simulation
 
