@@ -141,61 +141,49 @@ For $1\leq t \leq T$, the potential outcomes $$\{ X_{t+1}(\bar{a}_t), A_{t+1}(\b
 
 We focus on estimation of $\beta_M(t, S_t)$ where $S_t$ is an arbitrary subset of $H_t$. Suppose $\Delta \geq 1$ is a positive integer. Recall that
 
-$$
-\begin{align*}
+$$\begin{align*}
   \beta_M(t, S_t) =\log \frac{
-E \left[ E \left\{ \prod_{j=t+1}^{t+\Delta-1} \frac{\mathbbm{1}(A_j = 0)}{1 - p_j(H_j)} Y_{t,\Delta} \Big| A_t = 1, H_t, I_t = 1 \right\} \Big| S_t, I_t = 1 \right]
+E \left[ E \left\{ \prod_{j=t+1}^{t+\Delta-1} \frac{\mathbb{1}(A_j = 0)}{1 - p_j(H_j)} Y_{t,\Delta} \Big| A_t = 1, H_t, I_t = 1 \right\} \Big| S_t, I_t = 1 \right]
 }{
-E \left[ E \left\{ \prod_{j=t+1}^{t+\Delta-1} \frac{\mathbbm{1}(A_j = 0)}{1 - p_j(H_j)} Y_{t,\Delta} \Big| A_t = 0, H_t, I_t = 1 \right\} \Big| S_t, I_t = 1 \right]
+E \left[ E \left\{ \prod_{j=t+1}^{t+\Delta-1} \frac{\mathbb{1}(A_j = 0)}{1 - p_j(H_j)} Y_{t,\Delta} \Big| A_t = 0, H_t, I_t = 1 \right\} \Big| S_t, I_t = 1 \right]
 }.
-\end{align*}
-$$
+\end{align*}$$
 
 We make a parametric assumption on $\beta_M(t, S_t)$. Suppose that for $1 \leq t \leq T$,
-$$
-\begin{equation}
+$$\begin{equation}
 \beta_M(t, S_t) = S_t^T \beta \label{eq:model-maginal-binary}
-\end{equation}
-$$
+\end{equation}$$
 holds for some $p$-dimensional parameter $\beta$.  This model allows for time-dependent effects; $S_t$ could include a vector of basis functions of $t$.
 
 
 We propose to use a marginal generalization of the following estimating function to estimate $\beta$.
-$$
-\begin{align}
+$$\begin{align}
 m_C(\alpha, \psi) = & \sum_{t=1}^{T} I_t e^{-A_t f(H_t)^T \psi}\{Y_{t,1} - e^{g(H_t)^T \alpha + A_t f(H_t)^T \psi}\} \tilde{K}_t
 \begin{bmatrix}
 g(H_t) \\
 \{ A_t - p_t(H_t) \} f(H_t)
 \end{bmatrix}, \label{eq:ee-conditional}
-\end{align}
-$$
+\end{align}$$
 where 
-$$
-\begin{align*}
+$$\begin{align*}
  \tilde{K}_t = \frac{e^{f(H_t)^T \psi}}
 { e^{f(H_t)^T \psi}\{ 1-e^{g(H_t)^T\alpha} \} p_t(H_t)+ \{1-e^{g(H_t)^T\alpha+f(H_t)^T \psi} \} \{1-p_t(H_t)\} }.
-\end{align*}
-$$
+\end{align*}$$
 Then, the proposed estimating function is
-$$
-\begin{align}
+$$\begin{align}
 m_M(\alpha,\beta) = \sum_{t=1}^{T + \Delta - 1} I_t e^{-A_t S_t^T \beta} \{ Y_{t,\Delta} - e^{g(H_t)^T \alpha + A_t S_t^T \beta} \} J_t
 \begin{bmatrix}g(H_t)\\
 \{A_t - \tilde{p}_t(S_t)\} S_t
 \end{bmatrix}, \label{eq:ee-marginal}
-\end{align}
-$$
+\end{align}$$
 where $\exp\{g(H_t)^T \alpha\}$ is a working model for $E\{Y_{t,\Delta}(\bar{A}_{t-1}, 0, \bar{0}) \mid H_t, I_t = 1, A_t = 0\}$. 
 
 Since the model is now on the marginal effect, we apply a weighting and centering technique. 
 The weight at time $t$ is 
-$$
-\begin{align}
-J_t = \bigg\{ \frac{\tilde{p}_t(S_t)}{p_t(H_t)} \bigg\}^{A_t} \bigg\{ \frac{1 - \tilde{p}_t(S_t)}{1 - p_t(H_t)} \bigg\}^{1 - A_t} \times \prod_{j=t+1}^{t+\Delta-1} \frac{\mathbbm{1}(A_j = 0)}{1 - p_j(H_j)},
-\end{align}
-$$
-where $\tilde{p}_t(S_t) \in (0,1)$ is arbitrary as long as it does not depend on terms in $H_t$ other than $S_t$. The product, $\prod_{j=t+1}^{t+\Delta-1} \mathbbm{1}(A_j = 0)/\{1 - p_j( H_j)\}$, is standard inverse probability weighting for settings with $\Delta>1$. The ratio of probabilities, $\{\tilde{p}_t(S_t)/p_t(H_t) \}^{A_t} [ \{1 - \tilde{p}_t(S_t)\} / \{1 - p_t(H_t)\} ]^{1 - A_t}$, can be viewed as a change of probability.
+$$\begin{align}
+J_t = \bigg\{ \frac{\tilde{p}_t(S_t)}{p_t(H_t)} \bigg\}^{A_t} \bigg\{ \frac{1 - \tilde{p}_t(S_t)}{1 - p_t(H_t)} \bigg\}^{1 - A_t} \times \prod_{j=t+1}^{t+\Delta-1} \frac{\mathbb{1}(A_j = 0)}{1 - p_j(H_j)},
+\end{align}$$
+where $\tilde{p}_t(S_t) \in (0,1)$ is arbitrary as long as it does not depend on terms in $H_t$ other than $S_t$. The product, $\prod_{j=t+1}^{t+\Delta-1} \mathbb{1}(A_j = 0)/\{1 - p_j( H_j)\}$, is standard inverse probability weighting for settings with $\Delta>1$. The ratio of probabilities, $\{\tilde{p}_t(S_t)/p_t(H_t) \}^{A_t} [ \{1 - \tilde{p}_t(S_t)\} / \{1 - p_t(H_t)\} ]^{1 - A_t}$, can be viewed as a change of probability.
 
 The authors showed that EMEE is a consistent estimator under proper assumptions.
 
@@ -212,19 +200,15 @@ $\{\mathbb{P}_n \dot{m}_M(\hat\alpha, \hat\beta)\}^{-1^T}$.
 #### Dataset
 
 We use a synthetic dataset generated as follows. The time-varying covariate, $Z_t$, is independent of all variables observed before $Z_t$, and it takes three values $0,1,2$ with equal probability. The randomization probability is constant with $p_t(H_t) = 0.2$. The outcome $Y_{t,1}$ is generated from a Bernoulli distribution with
-$$
-\begin{align*}
-  E(Y_{t,1} \mid H_t, A_t) = \big\{0.2 \mathbbm{1}_{Z_t = 0} + 0.5 \mathbbm{1}_{Z_t = 1} + 0.4 \mathbbm{1}_{Z_t = 2} \big\} e^{A_t (0.1 + 0.3 Z_t)}.
-\end{align*}
-$$
+$$\begin{align*}
+  E(Y_{t,1} \mid H_t, A_t) = \big\{0.2 \mathbb{1}_{Z_t = 0} + 0.5 \mathbb{1}_{Z_t = 1} + 0.4 \mathbb{1}_{Z_t = 2} \big\} e^{A_t (0.1 + 0.3 Z_t)}.
+\end{align*}$$
 Here, $Z_t$ moderates the conditional treatment effect: The true conditional treatment effect $\beta_C(t,H_t)$ equals $0.1 + 0.3 Z_t$.
 
 We first consider estimating the fully marginal excursion effect, which is equal to
-$$
-\begin{align*}
+$$\begin{align*}
 \beta_0 = \log \frac{E\{ E(Y_{t,1} \mid H_t, A_t = 1) \}}{ E \{ E(Y_{t,1} \mid H_t, A_t = 0) \}} = 0.477.
-\end{align*}
-$$
+\end{align*}$$
 This is the setting of a typical primary analysis of MRT. In order to estimate $\beta_0$, by Theorem \ref{thm:asymptotics-marginal} it is appropriate to use the EMEE estimator with $S_t = 1$. 
 For comparison, we also include the generalized estimating equations (GEE) estimator, which is widely used in analyzing mHealth data. We use independence ("GEE.ind") and exchangeable ("GEE.exch") as working correlation structures for GEE.
 
