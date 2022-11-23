@@ -215,7 +215,7 @@ For comparison, we also include the generalized estimating equations (GEE) estim
 #### Simulation results
 
 <img src="Table1.png" />
-[Table1]
+[Table1, Qian et al. (2021)]
 
 
 The simulation result for estimating $\beta_0$ is given in Table 1; the total number of time points is $T=30$ for each individual. The bias, standard deviation (SD), and root mean squared error (RMSE) are all computed based on 1000 replicates. As expected, EMEE consistently estimates $\beta_0$. The consistency of GEE generally requires the working model $g(H_t)^T \alpha$ to be correct; in other words, it does not have the robustness property as EMEE. The result shows that both GEE.ind and GEE.exch are inconsistent.
