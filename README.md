@@ -248,7 +248,7 @@ Suppose $S_t$, $\exp(S_t)$, $g(H_t)$ and $\exp\{g(H_t)\}$ all have finite forth 
 
 Now we show the following consistency result.
 
-#### Theorem 1
+##### Theorem 1
 Suppose $\beta_M(t, S_t) = S_t^T$ and Assumptions 1,2,3 hold, and that the randomization probability $p_t(H_t)$ is known. Suppose $$\beta^*$$ is the value of $\beta$ corresponding to the data generating distribution, $P_0$.
 Let $\dot{m}_M$ be the derivative of $m_M(\alpha, \beta)$ with respect to $(\alpha, \beta)$. Let $(\hat\alpha, \hat\beta)$ be a solution to $\mathbb{P}_n m_M(\alpha,\beta) = 0$.
 Under regularity conditions 1,2, $$\sqrt{n}(\hat\beta - \beta^*)$$ is asymptotically normal with mean zero and variance-covariance matrix $\Sigma_M$. A consistent estimator for $\Sigma_M$ is the lower block diagonal $(p\times p)$ entry of the matrix
@@ -258,14 +258,14 @@ $$\{\mathbb{P}_n \dot{m}_M(\hat\alpha, \hat\beta)\}^{-1^T}$$.
 
 We need the following lemma.
 
-#### Lemma 1
+##### Lemma 1
 Suppose $\beta_M(t, S_t) = S_t^T$ and Assumptions 1,2,3 hold. Suppose $\beta^*$ is the value of $\beta$ corresponding to the data generating distribution, $P_0$. For an arbitrary $\alpha$, we have
 $$\begin{align}
     E[I_t e^{-A_t S_t^T \beta^*}\{ Y_{t,1} - e^{g(H_t)^T \alpha + A_t S_t^T \beta^*}\} J_t \{ A_t - \tilde{p}_t(S_t) \} S_t] = 0.
 \end{align}$$
 The proof of this lemma can be found in Appendix C of [1].
 
-By Theorem 5.9 and Problem 5.27 of [2], one can show that Regularity condition 1 implies $(\hat\alpha, \hat\beta)$ converges in probability to $(\alpha', \beta')$. Since $m_M(\alpha,\beta)$ is continuously differentiable and hence Lipschitz continuous, by Theorem 5.21 of [2], $\sqrt(n)\{(\hat\alpha, \hat\beta) - (\alpha', \beta')\}$ is asymptotically normal with mean zero and covariance matrix $[E \{\dot{m}_M(\alpha', \beta')\}]^{-1} E \{m_M(\alpha', \beta') m_M(\alpha', \beta')^T\} [E \{\dot{m}_M(\alpha', \beta')\}]^{-1^T}$. By the law of large numbers and Slutsky's theorem, this covariance matrix can be consistently estimated by $\{\mathbb{P}_n \dot{m}_M(\hat\alpha, \hat\beta)\}^{-1} \{\mathbb{P}_n m_M(\hat\alpha, \hat\beta) m_M(\hat\alpha, \hat\beta)^T\} \{\mathbb{P}_n \dot{m}_M(\hat\alpha, \hat\beta)\}^{-1^T}$. Furthermore, Regularity condition 1 and Lemma 1 imply that $\beta^* = \beta'$, completing the proof.
+By Theorem 5.9 and Problem 5.27 of [2], one can show that Regularity condition 1 implies $(\hat\alpha, \hat\beta)$ converges in probability to $(\alpha', \beta')$. Since $m_M(\alpha,\beta)$ is continuously differentiable and hence Lipschitz continuous, by Theorem 5.21 of [2], $\sqrt(n)\{(\hat\alpha, \hat\beta) - (\alpha', \beta')\}$ is asymptotically normal with mean zero and covariance matrix $[E \{\dot{m}_M(\alpha', \beta')\}]^{-1} E \{m_M(\alpha', \beta') m_M(\alpha', \beta')^T\} [E \{\dot{m}_M(\alpha', \beta')\}]^{-1^T}$. By the law of large numbers and Slutsky's theorem, this covariance matrix can be consistently estimated by $\{\mathbb{P}_n \dot{m}_M(\hat\alpha, \hat\beta)\}^{-1} \{\mathbb{P}_n m_M(\hat\alpha, \hat\beta) m_M(\hat\alpha, \hat\beta)^T\} \{\mathbb{P}_n \dot{m}_M(\hat\alpha, \hat\beta)\}^{-1^T}$. Furthermore, Regularity condition 1 and Lemma 1 imply that $\beta^* = \beta'$, completing the proof of Theorem 1.
 
 #### Remark on sensitivity analysis
 In a micro-randomized trial, the treatment is sequentially randomized with known probabilities bounded away from $0$ and $1$, so Assumptions 2 and 3 are satisfied by design. Assumption 1 is the only assumption may fail to hold. In specific, if there is peer influence or social interaction between individuals Assumption 1 may not hold; for example, in mHealth interventions with social media components, one individual's proximal outcome may be dependent on another individual's treatment assignment, which violates Assumption 1.
