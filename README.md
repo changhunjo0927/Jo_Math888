@@ -220,3 +220,65 @@ For comparison, we also include the generalized estimating equations (GEE) estim
 
 The simulation result for estimating $\beta_0$ is given in Table 1; the total number of time points is $T=30$ for each individual. The bias, standard deviation (SD), and root mean squared error (RMSE) are all computed based on 1000 replicates. As expected, EMEE consistently estimates $\beta_0$. The consistency of GEE generally requires the working model $g(H_t)^T \alpha$ to be correct; in other words, it does not have the robustness property as EMEE. The result shows that both GEE.ind and GEE.exch are inconsistent.
 
+
+## HW 5
+
+In “Estimating Time-Varying Causal Excursion Effect in Mobile Health with Binary Outcomes, Qian et al. (2021),” the authors did not provide sensitivity analysis. So I will provide an overview of the proof of consistency result and a remark on sensitivity analysis in this homework assignment.
+
+#### Consistency result
+
+In this section, we provide an overview of the proof of Theorem 1 (which is already introduced in HW 4). Recall the following assumptions.
+
+##### Assumption 1 (Consistency)
+The observed data is equal to the potential outcome under observed treatment assignment. That is, $X_2 = X_2(A_1)$, $A_2 = A_2(A_1)$, and for each subsequent $t \leq T$, $$X_t = X_t(\bar{A}_{t-1})$$, $$A_t = A_t(\bar{A}_{t-1})$$, and $$X_{T+1} = X_{T+1}(\bar{A}_T)$$. This assumption implies $$Y_{t,\Delta} = Y_{t,\Delta}(\bar{A}_{t+\Delta-1})$$.
+
+
+##### Assumption 2 (Positivity)
+If $\mbox{Pr}(H_t = h_t, I_t = 1) > 0$, then $\mbox{Pr}(A_t = a \mid H_t = h_t, I_t = 1) > 0$ for $a \in \{0,1\}$.
+
+
+##### Assumption 3 (Sequential ignorability)
+For $1\leq t \leq T$, the potential outcomes $$\{ X_{t+1}(\bar{a}_t), A_{t+1}(\bar{a}_t), \ldots, X_{T+1}(\bar{a}_T): \bar{a}_T \in \{0,1\}^{T} \}$$ are independent of $A_t$ conditional on $H_t$.
+
+##### Regularity condition 1
+Suppose $(\alpha, \beta) \in \Theta$, where $\Theta$ is a compact subset of a Euclidean space. Suppose there exists unique $(\alpha', \beta') \in \Theta$ such that $E\{m_M(\alpha', \beta')\} = 0$.
+
+##### Regularity condition 2
+Suppose $S_t$, $\exp(S_t)$, $g(H_t)$ and $\exp\{g(H_t)\}$ all have finite forth moment.
+
+Now we show the following consistency result.
+
+#### Theorem 1
+Suppose $\beta_M(t, S_t) = S_t^T$ and Assumptions 1,2,3 hold, and that the randomization probability $p_t(H_t)$ is known. Suppose $$\beta^*$$ is the value of $\beta$ corresponding to the data generating distribution, $P_0$.
+Let $\dot{m}_M$ be the derivative of $m_M(\alpha, \beta)$ with respect to $(\alpha, \beta)$. Let $(\hat\alpha, \hat\beta)$ be a solution to $\mathbb{P}_n m_M(\alpha,\beta) = 0$.
+Under regularity conditions 1,2, $$\sqrt{n}(\hat\beta - \beta^*)$$ is asymptotically normal with mean zero and variance-covariance matrix $\Sigma_M$. A consistent estimator for $\Sigma_M$ is the lower block diagonal $(p\times p)$ entry of the matrix
+$$\{\mathbb{P}_n \dot{m}_M(\hat\alpha, \hat\beta)\}^{-1}
+\{\mathbb{P}_n m_M(\hat\alpha, \hat\beta) m_M(\hat\alpha, \hat\beta)^T\}$$
+$$\{\mathbb{P}_n \dot{m}_M(\hat\alpha, \hat\beta)\}^{-1^T}$$.
+
+We need the following lemma.
+
+#### Lemma 1
+Suppose $\beta_M(t, S_t) = S_t^T$ and Assumptions 1,2,3 hold. Suppose $\beta^*$ is the value of $\beta$ corresponding to the data generating distribution, $P_0$. For an arbitrary $\alpha$, we have
+$$\begin{align}
+    E[I_t e^{-A_t S_t^T \beta^*}\{ Y_{t,1} - e^{g(H_t)^T \alpha + A_t S_t^T \beta^*}\} J_t \{ A_t - \tilde{p}_t(S_t) \} S_t] = 0.
+\end{align}$$
+The proof of this lemma can be found in Appendix C of [1].
+
+By Theorem 5.9 and Problem 5.27 of [2], one can show that Regularity condition 1 implies $(\hat\alpha, \hat\beta)$ converges in probability to $(\alpha', \beta')$. Since $m_M(\alpha,\beta)$ is continuously differentiable and hence Lipschitz continuous, by Theorem 5.21 of [2], $\sqrt(n)\{(\hat\alpha, \hat\beta) - (\alpha', \beta')\}$ is asymptotically normal with mean zero and covariance matrix $[E \{\dot{m}_M(\alpha', \beta')\}]^{-1} E \{m_M(\alpha', \beta') m_M(\alpha', \beta')^T\} [E \{\dot{m}_M(\alpha', \beta')\}]^{-1^T}$. By the law of large numbers and Slutsky's theorem, this covariance matrix can be consistently estimated by $\{\mathbb{P}_n \dot{m}_M(\hat\alpha, \hat\beta)\}^{-1} \{\mathbb{P}_n m_M(\hat\alpha, \hat\beta) m_M(\hat\alpha, \hat\beta)^T\} \{\mathbb{P}_n \dot{m}_M(\hat\alpha, \hat\beta)\}^{-1^T}$. Furthermore, Regularity condition 1 and Lemma 1 imply that $\beta^* = \beta'$, completing the proof.
+
+#### Remark on sensitivity analysis
+In a micro-randomized trial, the treatment is sequentially randomized with known probabilities bounded away from $0$ and $1$, so Assumptions 2 and 3 are satisfied by design. Assumption 1 is the only assumption may fail to hold. In specific, if there is peer influence or social interaction between individuals Assumption 1 may not hold; for example, in mHealth interventions with social media components, one individual's proximal outcome may be dependent on another individual's treatment assignment, which violates Assumption 1.
+In this case, a causal inference framework that incorporates interference [3,4] needs to be used.
+The authors of this paper did not consider such cases to maintain the focus of the paper. 
+
+#### References
+[1] Qian et al., Estimating Time-Varying Causal Excursion Effect in Mobile Health with Binary Outcomes, 2021.
+
+[2] Van der Vaart, Asymptotic statistics, 2000
+
+[3] Hong, G. and Raudenbush, S. W., Evaluating kindergarten retention policy: A
+case study of causal inference for multilevel observational data, Journal of the American
+Statistical Association 101, 2006.
+
+[4] Hudgens, M. G. and Halloran, M. E., Toward causal inference with interference, Journal of the American Statistical Association, 2008.
